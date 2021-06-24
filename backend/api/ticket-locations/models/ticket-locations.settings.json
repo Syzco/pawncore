@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ticket_locations",
+  "info": {
+    "name": "Ticket Locations",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "LocationID": {
+      "type": "integer"
+    },
+    "Name": {
+      "type": "string",
+      "maxLength": 255
+    }
+  }
+}

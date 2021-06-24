@@ -1,0 +1,102 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "name": "Customers",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CustomerID": {
+      "type": "biginteger"
+    },
+    "First_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Middle_Name": {
+      "type": "string"
+    },
+    "Last_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Date_of_Birth": {
+      "type": "biginteger",
+      "required": true
+    },
+    "Sex": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female",
+        "Other"
+      ],
+      "required": true,
+      "default": "Male"
+    },
+    "Race": {
+      "type": "enumeration",
+      "enum": [
+        "White",
+        "Black",
+        "Other"
+      ],
+      "required": true,
+      "default": "White"
+    },
+    "AddressID": {
+      "model": "customers"
+    },
+    "IdentificationID": {
+      "model": "customers"
+    },
+    "Height": {
+      "type": "biginteger",
+      "required": true
+    },
+    "Weight": {
+      "type": "integer",
+      "required": true
+    },
+    "EyeColor": {
+      "type": "enumeration",
+      "enum": [
+        "Brown",
+        "Hazel",
+        "Green",
+        "Blue"
+      ],
+      "default": "Brown",
+      "required": true
+    },
+    "HairColor": {
+      "type": "enumeration",
+      "enum": [
+        "Black",
+        "Brown",
+        "Blonde",
+        "White",
+        "Red"
+      ],
+      "default": "Black",
+      "required": true
+    },
+    "Marks": {
+      "type": "string",
+      "required": true
+    },
+    "Occupation": {
+      "type": "biginteger",
+      "required": true
+    },
+    "Image": {
+      "model": "customer-images"
+    }
+  }
+}

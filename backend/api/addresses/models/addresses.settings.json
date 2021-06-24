@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addresses",
+  "info": {
+    "name": "Addresses"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "AddressID": {
+      "type": "biginteger",
+      "required": true
+    },
+    "Street": {
+      "type": "string",
+      "required": true
+    },
+    "Street2": {
+      "type": "string"
+    },
+    "City": {
+      "type": "string",
+      "required": true
+    },
+    "State": {
+      "type": "string",
+      "required": true
+    },
+    "Zipcode": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

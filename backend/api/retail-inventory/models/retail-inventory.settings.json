@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "retail_inventories",
+  "info": {
+    "name": "Retail Inventory",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "RetailInventoryNumber": {
+      "model": "retail-transactions"
+    },
+    "ItemID": {
+      "model": "items"
+    },
+    "LocationID": {
+      "type": "biginteger",
+      "required": true
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "to",
+        "be",
+        "determined"
+      ],
+      "required": true,
+      "unique": false
+    }
+  }
+}

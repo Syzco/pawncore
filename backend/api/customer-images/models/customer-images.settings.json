@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customer_images",
+  "info": {
+    "name": "Customer Images",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ImageID": {
+      "type": "biginteger"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "AltText": {
+      "type": "string"
+    },
+    "Source": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    }
+  }
+}

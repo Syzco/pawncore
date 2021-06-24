@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/ticket-items",
+      "handler": "ticket-items.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ticket-items/count",
+      "handler": "ticket-items.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ticket-items/:id",
+      "handler": "ticket-items.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/ticket-items",
+      "handler": "ticket-items.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ticket-items/:id",
+      "handler": "ticket-items.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/ticket-items/:id",
+      "handler": "ticket-items.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

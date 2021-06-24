@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tickets",
+  "info": {
+    "name": "Tickets"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TicketNumber": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "to",
+        "be",
+        "determined"
+      ],
+      "required": true
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "to",
+        "be",
+        "determined"
+      ]
+    }
+  }
+}

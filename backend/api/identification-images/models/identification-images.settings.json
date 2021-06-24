@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "identification_images",
+  "info": {
+    "name": "Identification Images"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ImageID": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "text"
+    },
+    "AltText": {
+      "type": "string"
+    },
+    "Source": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

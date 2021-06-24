@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "phone_numbers",
+  "info": {
+    "name": "PhoneNumbers",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PhoneID": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "to",
+        "be",
+        "determined"
+      ],
+      "required": true
+    },
+    "Number": {
+      "type": "string",
+      "required": true
+    },
+    "CustomerID": {
+      "model": "customers"
+    }
+  }
+}

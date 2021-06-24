@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ticket_inventories",
+  "info": {
+    "name": "Ticket Inventory"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TicketInventoryNumber": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "ItemID": {
+      "model": "items"
+    },
+    "LocationID": {
+      "model": "ticket-locations"
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "to",
+        "be",
+        "determined"
+      ]
+    }
+  }
+}

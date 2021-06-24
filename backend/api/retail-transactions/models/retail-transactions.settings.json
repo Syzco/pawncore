@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "retail_transactions",
+  "info": {
+    "name": "Retail Transactions"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TransactionItemID": {
+      "unique": true,
+      "model": "transaction-items"
+    },
+    "RetailInventoryNumber": {
+      "type": "biginteger",
+      "required": true,
+      "unique": false
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "to",
+        "be",
+        "determined"
+      ],
+      "required": true
+    },
+    "Amount": {
+      "type": "biginteger",
+      "required": true
+    }
+  }
+}

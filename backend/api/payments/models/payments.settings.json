@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "name": "Payments"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "MethodID": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "TransactionID": {
+      "model": "transactions"
+    },
+    "PaymentMethod": {
+      "model": "payment-methods"
+    },
+    "Amount": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

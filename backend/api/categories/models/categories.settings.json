@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "name": "Categories",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CategoryID": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "ParentID": {
+      "type": "string"
+    },
+    "Image": {
+      "model": "stock-images"
+    }
+  }
+}

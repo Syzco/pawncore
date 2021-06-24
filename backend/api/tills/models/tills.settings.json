@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tills",
+  "info": {
+    "name": "Tills"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TillID": {
+      "type": "integer",
+      "required": true,
+      "unique": true,
+      "default": 1
+    },
+    "Amount": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    }
+  }
+}

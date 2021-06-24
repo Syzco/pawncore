@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "name": "Transactions",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "TransactionID": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "CustomerID": {
+      "model": "customers"
+    },
+    "Total": {
+      "type": "enumeration",
+      "enum": [
+        "to",
+        "be",
+        "determined"
+      ],
+      "required": true
+    },
+    "TillID": {
+      "type": "biginteger",
+      "required": true
+    }
+  }
+}

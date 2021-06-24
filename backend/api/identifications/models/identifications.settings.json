@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "identifications",
+  "info": {
+    "name": "Identifications",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "IdentificationID": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "IDNumber": {
+      "type": "string",
+      "required": true
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "to",
+        "be",
+        "determined"
+      ],
+      "required": true
+    },
+    "Agency": {
+      "type": "string",
+      "required": true
+    },
+    "identification_image": {
+      "model": "identification-images"
+    }
+  }
+}
