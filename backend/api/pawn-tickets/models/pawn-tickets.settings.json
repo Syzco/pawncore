@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pawn_tickets",
+  "info": {
+    "name": "PawnTickets"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ticket": {
+      "model": "tickets"
+    },
+    "finance_charge": {
+      "type": "decimal"
+    },
+    "interest_rate": {
+      "type": "decimal"
+    },
+    "maturity_date": {
+      "model": "dates"
+    },
+    "default_date": {
+      "model": "dates"
+    },
+    "maturity_total": {
+      "type": "decimal"
+    },
+    "default_total": {
+      "type": "decimal"
+    },
+    "transaction_date": {
+      "model": "dates"
+    },
+    "transaction_total": {
+      "type": "decimal"
+    }
+  }
+}

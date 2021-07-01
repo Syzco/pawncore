@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/pawn-tickets",
+      "handler": "pawn-tickets.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pawn-tickets/count",
+      "handler": "pawn-tickets.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pawn-tickets/:id",
+      "handler": "pawn-tickets.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/pawn-tickets",
+      "handler": "pawn-tickets.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/pawn-tickets/:id",
+      "handler": "pawn-tickets.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/pawn-tickets/:id",
+      "handler": "pawn-tickets.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

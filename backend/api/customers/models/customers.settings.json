@@ -1,0 +1,98 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "name": "Customers"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "middle_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string",
+      "required": true
+    },
+    "date_of_birth": {
+      "model": "dates"
+    },
+    "sex": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "unknown"
+      ],
+      "default": "unknown",
+      "required": true
+    },
+    "race": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "hispanic"
+      ],
+      "default": "white",
+      "required": true
+    },
+    "address": {
+      "model": "addresses"
+    },
+    "identification": {
+      "model": "identifications"
+    },
+    "height": {
+      "type": "string",
+      "required": true
+    },
+    "weight": {
+      "type": "integer"
+    },
+    "eye_color": {
+      "type": "enumeration",
+      "enum": [
+        "black",
+        "brown",
+        "blue",
+        "red",
+        "green",
+        "hazel"
+      ],
+      "required": true,
+      "default": "brown"
+    },
+    "hair_color": {
+      "type": "enumeration",
+      "enum": [
+        "brown",
+        "red",
+        "green",
+        "blonde",
+        "sandy",
+        "grey",
+        "black"
+      ],
+      "default": "black",
+      "required": true
+    },
+    "marks": {
+      "type": "string"
+    },
+    "occupation": {
+      "type": "string"
+    },
+    "image": {
+      "model": "customer-images"
+    }
+  }
+}

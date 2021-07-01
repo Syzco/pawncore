@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "items",
+  "info": {
+    "name": "Items"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "catalog": {
+      "model": "catalogs"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "great",
+        "good",
+        "broken"
+      ]
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "cost": {
+      "type": "decimal"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "ticket": {
+      "model": "tickets"
+    },
+    "item_images": {
+      "via": "item",
+      "collection": "item-images"
+    },
+    "ticket_inventory": {
+      "via": "item",
+      "model": "ticket-inventory"
+    },
+    "retail_inventory": {
+      "via": "item",
+      "model": "retail-inventory"
+    }
+  }
+}

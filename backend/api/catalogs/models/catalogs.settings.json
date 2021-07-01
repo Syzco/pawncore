@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "catalogs",
+  "info": {
+    "name": "Catalogs"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "brand": {
+      "model": "brands"
+    },
+    "model": {
+      "type": "string",
+      "required": true
+    },
+    "stock_image": {
+      "model": "stock-images"
+    },
+    "upc": {
+      "type": "string"
+    },
+    "category": {
+      "model": "categories"
+    }
+  }
+}

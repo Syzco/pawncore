@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ticket_inventories",
+  "info": {
+    "name": "TicketInventory",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "item": {
+      "model": "items",
+      "via": "ticket_inventory"
+    },
+    "location": {
+      "model": "ticket-locations"
+    }
+  }
+}

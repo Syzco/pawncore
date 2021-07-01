@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transaction_items",
+  "info": {
+    "name": "TransactionItems",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "transaction": {
+      "model": "transactions"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Pawn",
+        "Buy",
+        "Retail"
+      ]
+    },
+    "transaction_date": {
+      "model": "dates"
+    },
+    "ticket_transaction": {
+      "model": "ticket-transactions"
+    },
+    "retail_transaction": {
+      "model": "retail-transactions"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/ticket-inventories",
+      "handler": "ticket-inventory.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ticket-inventories/count",
+      "handler": "ticket-inventory.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ticket-inventories/:id",
+      "handler": "ticket-inventory.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/ticket-inventories",
+      "handler": "ticket-inventory.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ticket-inventories/:id",
+      "handler": "ticket-inventory.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/ticket-inventories/:id",
+      "handler": "ticket-inventory.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "retail_transactions",
+  "info": {
+    "name": "RetailTransactions"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "retail_inventory": {
+      "model": "retail-inventory"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "idk"
+      ]
+    },
+    "amount": {
+      "type": "decimal"
+    }
+  }
+}

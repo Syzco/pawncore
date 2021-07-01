@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "item_images",
+  "info": {
+    "name": "ItemImages"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "item": {
+      "model": "items",
+      "via": "item_images"
+    },
+    "description": {
+      "type": "string"
+    },
+    "alt_text": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    }
+  }
+}
