@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "extensions",
+  "info": {
+    "name": "Extensions"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "days": {
+      "type": "integer",
+      "required": true
+    },
+    "old_date": {
+      "model": "dates"
+    },
+    "new_date": {
+      "model": "dates"
+    }
+  }
+}

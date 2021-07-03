@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ticket_transactions",
+  "info": {
+    "name": "TicketTransactions"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ticket": {
+      "model": "tickets"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Pawn",
+        "Buy"
+      ]
+    },
+    "amount": {
+      "type": "decimal"
+    }
+  }
+}

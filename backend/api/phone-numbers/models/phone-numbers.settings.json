@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "phone_numbers",
+  "info": {
+    "name": "PhoneNumbers",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "home",
+        "cell",
+        "work"
+      ],
+      "default": "cell",
+      "required": true
+    },
+    "customer": {
+      "model": "customers"
+    }
+  }
+}

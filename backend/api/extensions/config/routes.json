@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/extensions",
+      "handler": "extensions.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/extensions/count",
+      "handler": "extensions.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/extensions/:id",
+      "handler": "extensions.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/extensions",
+      "handler": "extensions.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/extensions/:id",
+      "handler": "extensions.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/extensions/:id",
+      "handler": "extensions.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "retail_inventories",
+  "info": {
+    "name": "RetailInventory"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "item": {
+      "model": "items",
+      "via": "retail_inventory"
+    },
+    "location": {
+      "model": "retail-locations"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "sold",
+        "hold",
+        "transaction",
+        "inventory"
+      ]
+    }
+  }
+}

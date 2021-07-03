@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "name": "Payments"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "transaction": {
+      "model": "transactions"
+    },
+    "payment_method": {
+      "model": "payment-methods"
+    },
+    "amount": {
+      "type": "decimal"
+    }
+  }
+}

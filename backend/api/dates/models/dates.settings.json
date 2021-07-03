@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dates",
+  "info": {
+    "name": "Dates",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "day": {
+      "type": "integer",
+      "max": 31,
+      "required": true,
+      "min": 1,
+      "default": 1
+    },
+    "month": {
+      "type": "integer",
+      "default": 1,
+      "unique": false,
+      "min": 1,
+      "max": 12,
+      "required": true
+    },
+    "year": {
+      "type": "integer",
+      "default": 2000,
+      "required": true
+    }
+  }
+}

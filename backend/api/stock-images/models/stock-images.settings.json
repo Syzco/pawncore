@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stock_images",
+  "info": {
+    "name": "StockImages"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "alt_text": {
+      "type": "string",
+      "required": false
+    },
+    "source": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tickets",
+  "info": {
+    "name": "Tickets"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Pawn",
+        "Buy"
+      ],
+      "default": "Pawn",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "expired",
+        "redeemed",
+        "hold"
+      ],
+      "default": "active"
+    },
+    "ticket_items": {
+      "via": "ticket",
+      "collection": "ticket-items"
+    }
+  }
+}
