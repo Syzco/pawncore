@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: white;
+    background-color: #2b2b2a;
+}
+
+.sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 100%;
+    width: 160px;
+
+    position: fixed;
+    z-index: 1;
+
+    top: 0;
+    left: 0;
+
+    background-color: #141414;
+    overflow-x: hidden;
+}
+
+.sidenav li {
+    list-style-type: none;
+}
+
+.sidenav img {
+
+    color: white;
+
+    height: 64px;
+    text-align: center;
+}
+
+
+.sidenav a {
+    text-decoration: none;
+
+    padding: 30px 25px;
+
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1
+}
+
+#pageTitle
+{
+    text-align: center;
+}
+
+.content
+{
+    align-items: center;
+
+    background-color: rgba(100, 100, 100, 0.3);
+    padding: 15px 35px;
+    
+    margin: 15px 15%;
+
+    height: 720px;
+    width: 65%;
+}
+

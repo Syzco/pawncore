@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-     "dev": "next dev",
-     "build": "next build",
-     "start": "next start",
-     "lint": "next lint"
-   },
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
