@@ -1,19 +1,16 @@
 // https://icons8.com/license
 // Icon License: Free aslong as given credit : 
 
-import LeftSideBar from '../components/left_sidebar.js'
-import Content from "../components/content.js"
+import Navigation from '@Nav/main.js'
+import Tab from '@Tab/main.js'
 
-function HomePage() {
+function App() {
     return (
-        <div>            
-            <h1 id="pageTitle">Create a New Ticket</h1>
-
-        <Content />
-        <LeftSideBar />
-        
+        <div className="main-container">
+             <Navigation />
+             <Tab title="Home" />
         </div>
     )
 }
 
-export default HomePage
+export default App

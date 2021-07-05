@@ -1,0 +1,12 @@
+{
+     "compilerOptions": {
+         "baseUrl": "./",
+         "paths": {
+             "@Components/*": ["components/*"],
+             "@Nav/*": ["./components/nav/*"],
+             "@Info/*": ["components/info/*"],
+             "@Tab/*": ["components/tab/*"],
+             "@Assets/*": ["assets/*"]
+         }
+     }
+ }
