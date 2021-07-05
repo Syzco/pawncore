@@ -4,9 +4,9 @@
          "paths": {
              "@Components/*": ["components/*"],
              "@Templates/*": ["templates/*"],
-             "@Nav/*": ["./components/nav/*"],
+             "@Nav/*": ["components/nav/*"],
              "@Info/*": ["components/info/*"],
-             "@Tab/*": ["components/tab/*"],
+             "@Stage/*": ["components/stage/*"],
              "@Assets/*": ["assets/*"]
          }
      }
