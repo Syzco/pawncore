@@ -17,12 +17,22 @@ export default class Stage extends React.Component {
           return;
      }
 
+     populateSidePane() {
+          return;
+     }
+
      render() {
           return (
                <div className="main-page">
                     <Title title={this.title} />
 
-                    {this.populateCenterStage()}
+                    <div className="center-pane">
+                         {this.populateCenterStage()}
+                    </div>
+
+                    <div className="side-pane">
+
+                    </div>
                </div>
           )
      }
