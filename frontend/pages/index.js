@@ -12,14 +12,23 @@ export default class App extends React.Component {
           super(props)
 
           this.state = {
-               curTemplate: "dashboard"
+               theme: {
+                    current: "dashboard"
+               },
+               session: {
+                    customer: "",
+                    transaction: ""
+               }
           }
 
           this.changeTemplate = this.changeTemplate.bind(this);
      }
 
-     loadTemplate() {
-          switch (this.state.curTemplate) {
+     /*
+      * Template Handling
+      */
+     loadTemplate(props) {
+          switch (this.state.theme.current) {
                case 'dashboard': 
                     return (
                          <Dashboard />
@@ -32,12 +41,12 @@ export default class App extends React.Component {
                     break;
           }
      }
-
      changeTemplate(template) {
-          console.log("Ran the change")
-          this.setState({ curTemplate: template })
+          this.setState({ theme: { current: template }})
      }
 
+
+     //Render the content.
      render() {
           return (
                <div className="main-container">
