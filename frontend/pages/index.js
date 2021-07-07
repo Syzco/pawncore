@@ -16,7 +16,16 @@ export default class App extends React.Component {
                     current: "dashboard"
                },
                session: {
-                    customer: "Braden",
+                    customer: {
+                         fname: "Harry",
+                         lname: "Langsten",
+                         phone: "(272) 300-2930",
+                         address: "1234 Main St.",
+                         city: "Lakeland",
+                         state: "FL",
+                         zipCode: "33805"
+                    },
+
                     transaction: ""
                }
           }
