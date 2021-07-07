@@ -31,7 +31,7 @@ export default class Stage extends React.Component {
      showCustomer() {
           if (this.hasCustomerCard) {
                return (
-                    <CustomerCard />
+                    <CustomerCard customer={this.props.session.customer}/>
                )
           }
 

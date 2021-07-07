@@ -16,7 +16,7 @@ export default class App extends React.Component {
                     current: "dashboard"
                },
                session: {
-                    customer: "",
+                    customer: "Braden",
                     transaction: ""
                }
           }
@@ -31,12 +31,12 @@ export default class App extends React.Component {
           switch (this.state.theme.current) {
                case 'dashboard': 
                     return (
-                         <Dashboard />
+                         <Dashboard {...props} />
                     )
                     break;
                case 'customer':
                     return (
-                         <Customer />
+                         <Customer {...props} />
                     )
                     break;
           }
@@ -52,7 +52,7 @@ export default class App extends React.Component {
                <div className="main-container">
                     <Navigation navFunc={this.changeTemplate}/>
 
-                    {this.loadTemplate()}
+                    {this.loadTemplate({  session: this.state.session })}
                </div>
           )
      }
