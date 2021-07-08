@@ -33,9 +33,33 @@ body {
      margin: 20px 0;
 }
 
+.nav > .nav-button > a {
+     display: block;
+     width: 100%;
+     height: 100%;
+}
+
+.nav > .nav-button > a > i {
+     font-size: 64px;
+     color: #4b5f6b;
+}
+
+.nav > .nav-button > a.active > i {
+     color: #4169e1;
+}
+
 .nav > .nav-button:hover {
      text-decoration: none;
      cursor: pointer;
+}
+
+.tbl {
+     width: 100%;
+     height: 100%;
+}
+
+.tbl > tr > td {
+     text-align: center;
 }
 
 .main-page {
@@ -152,6 +176,10 @@ body {
      border-radius: 5px;
      border: 1px solid black;
      padding-left: 10px;
+}
+
+.customer-input-dob > input[type=text]:invalid {
+     border-color: red;
 }
 
 .customer-input-phone, .customer-input-dob, .customer-input-name

@@ -3,16 +3,20 @@
 
 import Navigation from '@Nav/main.js'
 import React from 'react'
+import Head from 'next/head'
 
 import Dashboard from '@Templates/dashboard'
 import Customer from '@Templates/customer'
+import Inventory from '@Templates/inventory'
+import Ticket from '@Templates/tickets'
+import Transaction from '@Templates/transaction'
 
 export default class App extends React.Component {
      constructor (props) {
           super(props)
 
           this.state = {
-               theme: {
+               page: {
                     current: "dashboard"
                },
                session: {
@@ -37,7 +41,7 @@ export default class App extends React.Component {
       * Template Handling
       */
      loadTemplate(props) {
-          switch (this.state.theme.current) {
+          switch (this.state.page.current) {
                case 'dashboard': 
                     return (
                          <Dashboard {...props} />
@@ -48,10 +52,25 @@ export default class App extends React.Component {
                          <Customer {...props} />
                     )
                     break;
+               case 'inventory':
+                    return (
+                         <Inventory {...props} />
+                    )
+                    break;
+               case 'tickets':
+                    return (
+                         <Ticket {...props} />
+                    )
+                    break;
+               case 'transactions':
+                    return (
+                         <Transaction {...props} />
+                    )
+                    break;
           }
      }
      changeTemplate(template) {
-          this.setState({ theme: { current: template }})
+          this.setState({ page: { current: template }})
      }
 
 
@@ -59,7 +78,11 @@ export default class App extends React.Component {
      render() {
           return (
                <div className="main-container">
-                    <Navigation navFunc={this.changeTemplate}/>
+                    <Head>
+                         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+                    </Head>
+
+                    <Navigation navFunc={this.changeTemplate} active={this.state.page.current} />
 
                     {this.loadTemplate({  session: this.state.session })}
                </div>

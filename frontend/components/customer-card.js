@@ -4,7 +4,17 @@ export default class CustomerCard extends React.Component {
      constructor(props) {
           super(props)
 
-          this.customer
+          this.form = React.createRef()
+          this.validate = this.validate.bind(this)
+          this.searchCustomers = this.searchCustomers.bind(this)
+     }
+
+     validate() {
+          this.form.current.reportValidity()
+     }
+
+     searchCustomers() {
+          this.validate()
      }
      
      render() {     
@@ -12,12 +22,12 @@ export default class CustomerCard extends React.Component {
                //No Current Customer
                return (                                              
                     <div className="customer-card">
-                         <div className="customer-card-details">
+                         <form className="customer-card-details" onSubmit={e => e.preventDefault()} ref={this.form}>
                               <div className="customer-input-name"><input type="text" name="fname" placeholder="First Name" /> <input type="text" name="lname" placeholder="Last Name" /></div>
-                              <div className="customer-input-dob"><input type="text" name="dob" placeholder="Date of Birth" /></div>
+                              <div className="customer-input-dob"><input type="text" name="dob" placeholder="Date of Birth" pattern="[0-1][0-9]/[0-3][0-9]/[0-9]{4}" /></div>
                               <div className="customer-input-phone"><input type="text" name="phone" placeholder="Phone Number" /></div>
-                              <div className="customer-input-button"> <a href="#">Search Customer</a></div>
-                        </div>
+                              <div className="customer-input-button"><button type="submit" onClick={this.searchCustomers}>Search Customer</button></div>
+                        </form>
                     </div>
                     )
           } else {

@@ -1,11 +1,11 @@
 import ReactTooltip from 'react-tooltip'
 import Image from 'next/image'
 
-export default function NavButton({src, alt, template, navFunc}) {
+export default function NavButton({src, template, navFunc, active}) {
      return (
           <div className="nav-button">
-               <a data-tip={alt} onClick={() => navFunc(template)}>
-                    <Image src={src} alt={alt} height="64" width="64" />
+               <a className={((active == template) ? "active" : "")} onClick={() => navFunc(template)}>
+                    <i className={"fa " + src}></i>
                </a>
           </div>
      )
