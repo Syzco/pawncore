@@ -4,8 +4,11 @@ export default class Table extends React.Component {
      constructor(props) {
           super(props)
 
-          this.columns = []
-          this.rows = []
+          this.columns = this.props.columns || []
+          this.rows = this.props.rows || []
+
+          this.setColumns = this.setColumns.bind(this)
+          this.addRow = this.addRow.bind(this)
      }
 
      //columnInfo = [ID, Name, Type, Price]
@@ -24,6 +27,7 @@ export default class Table extends React.Component {
                {css: "", html: (<div></div>)}
           ]
      }
+
      addRow(rowInfo) {
           if (rowInfo.columns.length != this.columns.length || typeof rowInfo != 'object') return
 
