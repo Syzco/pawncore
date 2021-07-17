@@ -9,7 +9,11 @@ export default class SearchListTemplate extends React.Component {
           this.search = React.createRef()
           this.table = React.createRef()
           
-          this.searchFunc = () => {}
+          this.searchFunc = this.props.searchFunc
+
+          this.state = {
+               buttons: this.props.buttons || []
+          }
      }
 
      componentDidMount() {
@@ -21,10 +25,26 @@ export default class SearchListTemplate extends React.Component {
           this.searchFunc = func
      }
 
+     getSearchValue = () => {
+          return this.search.current.getValue()
+     }
+
+     addButton = (btn) => {
+          if (btn.length) this.setState({buttons: [...this.state.buttons, ...btn]})
+          else this.setState({buttons: [...this.state.buttons, btn]})
+     }
+
      renderSearchSection = (className) => {
           return (
-               <div className={"search-section" + className || ""}>
+               <div className={"search-section" + (className || "")}>
                     <SearchBox ref={this.search} searchFunc={this.searchFunc} />
+                    {
+                         this.state.buttons.map((v, i) => {
+                              return (
+                                   <button className={"search-section-button" + (v.className || "")} onClick={v.func} key={i}>{v.name}</button>
+                              )
+                         })
+                    }
                </div>
           )
      }
@@ -37,7 +57,7 @@ export default class SearchListTemplate extends React.Component {
      renderListSection = (className) => {
           return (
                <div className={"list-section" + (className || "")}>
-                    <Table ref={this.table} className="list-table" />
+                    <Table ref={this.table} className="list-table" rows={this.props.rows || null}/>
                </div>
           )
      }

@@ -300,10 +300,6 @@ button, input[type="submit"], input[type="reset"] {
      font-size: 30px;
 }
 
-.transaction-screen {
-     display: block;
-}
-
 /*************************
 ** Search List Template **
 *************************/
@@ -312,7 +308,13 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .search-list > .search-section {
-     display: block;
+     display: flex;
+}
+
+.search-list > .search-section > .search-section-button {
+     border-radius: 30px;
+     background-color: rgb(177, 42, 42);
+     margin: 0 10px;
 }
 
 .search-list > .list-section {
@@ -339,4 +341,11 @@ button, input[type="submit"], input[type="reset"] {
 
 .tbl > tr > td {
      text-align: center;
+}
+
+/*************************
+**  Transaction Screen  **
+*************************/
+.transaction-screen {
+     display: block;
 }
