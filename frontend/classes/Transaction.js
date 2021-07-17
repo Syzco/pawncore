@@ -1,10 +1,24 @@
-export default class Transaction {
-    constructor(transactionId, customerId, total, tillId) {
-        this.transactionId = transactionId;
-        this.customerId = customerId;
-        this.tillId = tillId;
-        this.total = total;
-    }
+import Tills from "./Tills";
 
-       // transaction functions
+export default class Transaction {
+     constructor(transactionId, customer, total, till) {
+          this.transactionId = transactionId;
+          this.customer = customer;
+          this.till = till;
+          this.total = total;
+     }
+
+     // transaction functions
+     setTotal = (total) => {
+          this.total = total
+     }
+     addTotal = (amt) => {
+          this.total += amt
+     }
+     subTotal = (amt) => {
+          this.total -= amt
+     }
+     setTill = (till) => {
+          this.till = till
+     }
 }

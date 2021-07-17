@@ -37,9 +37,8 @@ export default class Table extends React.Component {
      }
 
      addRow = (rowInfo) => {
-          if (rowInfo.columns.length != this.columns.length || typeof rowInfo != 'object') return
-
-          this.setState({rows: [...this.state.rows, rowInfo]})
+          if (rowInfo.length) this.setState({rows: [...this.state.rows, ...rowInfo]})
+          else this.setState({rows: [...this.state.rows, rowInfo]})
      }
 
      render() {

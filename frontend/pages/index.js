@@ -10,6 +10,8 @@ import Customer from '@Templates/customer'
 import Inventory from '@Templates/inventory'
 import Ticket from '@Templates/tickets'
 import Transaction from '@Templates/transaction'
+import Error404 from '@Templates/error404'
+import Session from 'classes/Session'
 
 export default class App extends React.Component {
      constructor (props) {
@@ -19,19 +21,7 @@ export default class App extends React.Component {
                page: {
                     current: "dashboard"
                },
-               session: {
-                    customer: {
-                         fname: "Harry",
-                         lname: "Langsten",
-                         phone: "(272) 300-2930",
-                         address: "1234 Main St.",
-                         city: "Lakeland",
-                         state: "FL",
-                         zipCode: "33805"
-                    },
-
-                    transaction: ""
-               }
+               session: new Session(1, 300)
           }
 
           this.changeTemplate = this.changeTemplate.bind(this);
@@ -67,12 +57,36 @@ export default class App extends React.Component {
                          <Transaction {...props} />
                     )
                     break;
+               case 'default':
+                    return (
+                         <Error404 {...props} />
+                    )
           }
      }
      changeTemplate(template) {
           this.setState({ page: { current: template }})
      }
 
+     /*
+      * Transaction Handling
+      */
+     changeTransaction = (transaction) => {
+          this.setState({ session: { transaction: transaction } })
+     }
+     getTransaction = () => {
+          return this.state.session.transaction
+     }
+
+     /*
+      * Customer Handling
+      */
+     changeCustomer = (customer) => {
+          this.setState({ session: { customer: customer } })
+     }
+     removeCustomer = (removeCustomer) => {
+          this.setState({ session: { customer: "" } })
+     }
+     
 
      //Render the content.
      render() {
@@ -84,8 +98,10 @@ export default class App extends React.Component {
 
                     <Navigation navFunc={this.changeTemplate} active={this.state.page.current} />
 
-                    {this.loadTemplate({  session: this.state.session })}
+                    {this.loadTemplate({  session: this.state.session,  update: this.updateIndexData, retrieve: this.getIndexData })}
                </div>
           )
      }
 }
+
+// TODO: GET SERVERSIDE PROPS FOR CONSTANT VALUES (TICKET_COUNT, INV_COUNT, TRANSACTION_COUNT, CUSTOMER COUNT)

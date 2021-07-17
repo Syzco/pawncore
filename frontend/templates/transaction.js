@@ -23,6 +23,24 @@ export default class Transaction extends Stage {
 
      componentDidMount() {
           this.searchList.current.addButton([{name: "New Ticket", func: () => {}}])
+          this.searchList.current.setListColumns(["Inventory Number", "Product", "Type", "Amount"])
+          this.searchList.current.addListItem([
+               {
+                    columns: [
+                         {html: (<h1>Hello World</h1>)},
+                         {html: (<h1>Hello World</h1>)},
+                         {html: (<h1>Hello World</h1>)},
+                         {html: (<h1>Hello World</h1>)}
+                    ]
+               }, {
+                    columns: [
+                         {html: (<h1>Hello World</h1>)},
+                         {html: (<h1>Hello World</h1>)},
+                         {html: (<h1>Hello World</h1>)},
+                         {html: (<h1>Hello World</h1>)}
+                    ]
+               }
+          ])
      }
 
      populateCenterStage() {

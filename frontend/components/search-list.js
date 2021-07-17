@@ -17,7 +17,7 @@ export default class SearchListTemplate extends React.Component {
      }
 
      componentDidMount() {
-          this.table.current.setColumns(["Inventory Number", "Product", "Type", "Amount"])
+          if (this.props.columns) this.table.current.setColumns(this.props.columns)
      }  
 
      //Search
@@ -50,6 +50,10 @@ export default class SearchListTemplate extends React.Component {
      }
 
      //List
+     setListColumns = (columns) => {
+          this.table.current.setColumns(columns)
+     }
+
      addListItem = (listItem) => {
           this.table.current.addRow(listItem)
      }
