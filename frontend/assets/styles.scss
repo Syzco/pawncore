@@ -1,9 +1,29 @@
+/*************************
+**     Variables       **
+*************************/
+$bg: #2a363e;
+$bg-light: #36454f;
+$nav-buttons: #526876;
+
+/*************************
+**   Base HTML Fixings  **
+*************************/
 body {
     font-family: Arial, Helvetica, sans-serif;
 
     color: white;
 
     margin: 0;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 .main-container {
@@ -18,7 +38,7 @@ body {
      width: 5%;
      height: 100vh;
      
-     background-color: #2a363e;
+     background-color: $bg-light;
 
      display: flex;
      flex-direction: column;
@@ -41,7 +61,7 @@ body {
 
 .nav > .nav-button > a > i {
      font-size: 64px;
-     color: #4b5f6b;
+     color: $nav-buttons;
 }
 
 .nav > .nav-button > a.active > i {
@@ -53,15 +73,6 @@ body {
      cursor: pointer;
 }
 
-.tbl {
-     width: 100%;
-     height: 100%;
-}
-
-.tbl > tr > td {
-     text-align: center;
-}
-
 .main-page {
      position: absolute;
 
@@ -69,7 +80,7 @@ body {
 
      width: calc(100% - (100% * .05));
 
-     background-color: #36454f;
+     background-color: $bg;
 
      min-height: 100vh;
      max-height: 100vh;
@@ -108,7 +119,7 @@ body {
 
      margin: 10px 20px 0 20px;
 
-     background-color: #2a363e;
+     background-color: $bg-light;
 
      border-radius: 10px;
      padding: 20px;
@@ -129,7 +140,7 @@ body {
 
      height: 100vh;
 
-     background-color: #2a363e;
+     background-color: $bg-light;
 }
 
 .main-page > .customer-card {
@@ -239,9 +250,93 @@ body {
      margin: auto;
 }
 
+/*************************
+**     Search Box       **
+*************************/
 .search-box {
      width: 100%;
+     position: relative;
      height: 40px;
 
+     overflow: hidden;
+}
+
+.search-box > .search-input {
+     position: relative;
+     width: calc(100% - 45px);
+     height: calc(100% - 5px);
+
+     border: none;
      border-radius: 10px;
+
+     padding: 2px 39px 2px 2px;
+
+     outline: none;
+
+     background-color: #F1F1F1;
+}
+
+.search-box > .search-input:focus {
+     margin-top: 1px;
+     height: calc(100% - 10px);
+     border: 2px solid #4169e1;
+     border-radius: 10px;
+
+     outline: none;
+}
+
+.search-box > .search-button {
+     position: absolute;
+     right: 10px;
+     top: calc(50% - (100% / 2));
+
+     height: 100%;
+     width: 30px;
+
+     color: #4169e1;
+}
+
+.search-box > .search-button > i {
+     font-size: 30px;
+}
+
+.transaction-screen {
+     display: block;
+}
+
+/*************************
+** Search List Template **
+*************************/
+.search-list {
+     display: block;
+}
+
+.search-list > .search-section {
+     display: block;
+}
+
+.search-list > .list-section {
+     display: block;
+}
+
+.search-list > .search-list-split {
+     background-color: #80808083;
+
+     height: 1px;
+     width: 100%;
+
+     margin: 10px 0px;
+     border-radius: 10px;
+}
+
+/*************************
+**        Table         **
+*************************/
+.tbl {
+     width: 100%;
+     height: 100%;
+}
+
+.tbl > tr > td {
+     text-align: center;
 }

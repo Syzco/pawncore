@@ -1,8 +1,11 @@
+import SearchListTemplate from '@Components/search-list'
 import Stage from '../components/stage/main'
 
-export default class Customer extends Stage {
+export default class Transaction extends Stage {
      constructor(props) {
           super(props)
+
+          this.template = "transaction-screen"
           
           this.setTitle("New Transaction")
           this.setCustomerCard(true)
@@ -10,9 +13,9 @@ export default class Customer extends Stage {
 
      populateCenterStage() {
           return (
-               <h1>
-                    I am GROOT #2!
-               </h1>
+               <div className={this.template}>
+                    <SearchListTemplate />
+               </div>
           )
      }
 }

@@ -1,66 +1,78 @@
 import React from "react";
 
+/**
+ * rowInfo = {
+ *         css: "", 
+ *         columns: [
+ *              {css: "", html: (<div></div>)}, 
+ *              {css: "", html: (<div></div>)}, 
+ *              {css: "", html: (<div></div>)}, 
+ *              {css: "", html: (<div></div>)}
+ *         ]
+ *    }
+ * 
+ *   props
+ *        - className
+ *        - rowFWrapperHTML
+ *        - rowBWrapperHTML
+ *        - headerFWrapperHTML
+ *        - headerBWrapperHTML
+ */
+
 export default class Table extends React.Component {
      constructor(props) {
           super(props)
 
-          this.columns = this.props.columns || []
-          this.rows = this.props.rows || []
-
-          this.setColumns = this.setColumns.bind(this)
-          this.addRow = this.addRow.bind(this)
+          this.state = {
+               columns: this.props.columns || [],
+               rows: this.props.rows || []
+          }
      }
 
      //columnInfo = [ID, Name, Type, Price]
-     setColumns(columnInfo) {
+     setColumns = (columnInfo) => {
           if (typeof columnInfo != 'object') return
 
-          this.columns = columnInfo
-     }
-     
-     rowInfo = {
-          css: "", 
-          columns: [
-               {css: "", html: (<div></div>)}, 
-               {css: "", html: (<div></div>)}, 
-               {css: "", html: (<div></div>)}, 
-               {css: "", html: (<div></div>)}
-          ]
+          this.setState({columns: columnInfo})
      }
 
-     addRow(rowInfo) {
+     addRow = (rowInfo) => {
           if (rowInfo.columns.length != this.columns.length || typeof rowInfo != 'object') return
 
-          this.rows.push(rowInfo)
+          this.setState({rows: [...this.state.rows, rowInfo]})
      }
 
      render() {
           return (
                <table className={"tbl " + (this.props.className || "")}>
-                    <tr>
+                    <thead>
+                         <tr>
+                              {
+                                   this.state.columns.map((col, i) => {
+                                        return (
+                                             <th key={i}>{(this.props.headerFWrapperHTML || null)}{col}{(this.props.headerBWrapperHTML || null)}</th>
+                                        )
+                                   })
+                              }
+                         </tr>
+                    </thead>
+                    <tbody>
                          {
-                              this.columns.map((col, i) => {
+                              this.state.rows.map((row, i) => {
                                    return (
-                                        <th key={i}>{col}</th>
+                                        <tr key={i} className={row.css}>
+                                             {
+                                                  row.columns.map((rowCol, i) => {
+                                                       return (
+                                                            <td key={i} className={(rowCol.css || null)}>{(this.props.rowFWrapperHTML || "")}{rowCol.html || ""}{(this.props.rowBWrapperHTML || null)}</td>
+                                                       )
+                                                  })
+                                             }
+                                        </tr>
                                    )
                               })
                          }
-                    </tr>
-                    {
-                         this.rows.map((row, i) => {
-                              return (
-                                   <tr key={i} className={row.css}>
-                                        {
-                                             row.columns.map((rowCol, i) => {
-                                                  return (
-                                                       <td key={i} className={rowCol.css}>{rowCol.html}</td>
-                                                  )
-                                             })
-                                        }
-                                   </tr>
-                              )
-                         })
-                    }
+                    </tbody>
                </table>
           )
      }
