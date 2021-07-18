@@ -416,8 +416,11 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .tbl > thead {
+     position: sticky;
      border-radius: 10px 10px 0 0;
      overflow: hidden;
+
+     z-index: 2;
 }
 
 .tbl > thead > tr {
@@ -439,7 +442,7 @@ button, input[type="submit"], input[type="reset"] {
      border-bottom: 1px solid $line;
 }
 
-.tbl tr.clickable:hover {
+.tbl tr.clickable:hover, .tbl tr.clickable.selected {
      background-color: $nav-buttons;
 }
 
@@ -475,6 +478,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .customer-item > .name > .customer-name-wrapper {
+     position: relative;
      display: flex;
               
      justify-content: center;
