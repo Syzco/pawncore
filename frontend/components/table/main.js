@@ -2,6 +2,7 @@ import React from "react";
 
 /**
  * rowInfo = {
+ *         id: 1
  *         css: "", 
  *         columns: [
  *              {css: "", html: (<div></div>)}, 
@@ -40,7 +41,7 @@ export default class Table extends React.Component {
           else this.setState({rows: [...this.state.rows, rowInfo]})
      }
 
-     rowClickFunc = () => {
+     rowClickFunc = (e) => {
           return;
      }
 
@@ -63,7 +64,7 @@ export default class Table extends React.Component {
                               {
                                    this.state.rows.map((row, i) => {
                                         return (
-                                             <tr key={i} className={row.css + ((this.props.clickable) ? " clickable" : "")} onClick={this.rowClickFunc}>
+                                             <tr key={i} className={row.css + ((this.props.clickable) ? " clickable" : "") + ((this.props.selected == row.id) ? " selected" : "")} onClick={this.rowClickFunc} data-id={row.id}>
                                                   {
                                                        row.columns.map((rowCol, i) => {
                                                             return (
