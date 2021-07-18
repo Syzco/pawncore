@@ -459,6 +459,11 @@ button, input[type="submit"], input[type="reset"] {
 **  Customer List Screen  **
 ***************************/
 
+.center-stage-container > .list-container
+{
+     margin-top: 10px;
+}
+
 // main content
 
 .tbl.customer-list {
@@ -512,8 +517,6 @@ button, input[type="submit"], input[type="reset"] {
 
 .tbl.inventory-list {
      height: auto;
-     
-     margin-top: 20px;
 }
 
 .inventory-item > td {
@@ -543,7 +546,7 @@ button, input[type="submit"], input[type="reset"] {
 
      color: white;
      background-color: #4169e1;
-     padding: 5px 20px;
+     padding: px 20px;
 
      border-radius: 15%;
 }
@@ -552,6 +555,11 @@ button, input[type="submit"], input[type="reset"] {
 
 .item-side-details
 {
+     display: flex;
+
+     justify-content: center;
+     align-content: center;
+
      margin-top: 25%;
      font-size: 17pt;     
 

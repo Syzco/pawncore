@@ -2,7 +2,7 @@ import Stage from '../components/stage/main'
 import Table from '../components/table/main'
 import SearchBox from '@Components/search-box'
 
-export default class Customer extends Stage {
+export default class Inventory extends Stage {
      constructor(props) {
           super(props)
           
@@ -42,7 +42,10 @@ export default class Customer extends Stage {
           return (
                <div className="center-stage-container">
                     <SearchBox />
-                    <Table className="inventory-list" rows={this.table.rows} columns={this.table.columns} />
+
+                    <div className="list-container">
+                         <Table className="inventory-list" rows={this.table.rows} columns={this.table.columns} />
+                    </div>
                </div>
           )
      }

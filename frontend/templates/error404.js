@@ -1,18 +1,22 @@
 import Stage from '../components/stage/main'
+import BackButton from '@Components/back-button'
 
-export default class Customer extends Stage {
+export default class Error extends Stage {
      constructor(props) {
           super(props)
           
-          this.setTitle("Ticket Search")
-          this.showCustomerCard(true)
+          this.setTitle("Error - 404")
+          this.showCustomerCard(false)
      }
 
      populateCenterStage() {
           return (
                <h1>
-                    I am GROOT #2!
+                    How did you get here - Go back
+                    
+                    <BackButton />
                </h1>
+
           )
      }
 }
