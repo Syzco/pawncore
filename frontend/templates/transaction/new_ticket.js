@@ -1,5 +1,5 @@
 import SearchListTemplate from '@Components/search-list'
-import Stage from '../components/stage/main'
+import Stage from '@Components/stage/main'
 import React from 'react'
 
 // TODO: CREATE ADD RETAIL ITEM TO TRANSACTION THROUGH SEARCH METHOD. - R1
