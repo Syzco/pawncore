@@ -4,7 +4,7 @@ import React from 'react'
 
 // TODO: CREATE ADD RETAIL ITEM TO TRANSACTION THROUGH SEARCH METHOD. - R1
 
-export default class Transaction extends Stage {
+export default class NewTicket extends Stage {
      constructor(props) {
           super(props)
 

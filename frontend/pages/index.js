@@ -11,7 +11,7 @@ import Inventory from '@Templates/inventory'
 import Ticket from '@Templates/tickets'
 import Transaction from '@Templates/transaction'
 import Error404 from '@Templates/error404'
-import Session from 'classes/Session'
+import NewTicket from '@Templates/transactions/new_ticket'
 
 const DEFAULT_PAGE = "dashboard"
 const TILL_ID = 1
@@ -110,7 +110,7 @@ export default class App extends React.Component {
                     break;
                case 'new-ticket':
                     return (
-                         <
+                         <NewTicket {...props} /> 
                     )
                     break;
                case 'default':
