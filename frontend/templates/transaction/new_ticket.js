@@ -1,4 +1,4 @@
-import SearchListTemplate from '@Components/search-list'
+import Table from '@Components/table/main'
 import Stage from '@Components/stage/main'
 import React from 'react'
 
@@ -13,44 +13,30 @@ export default class NewTicket extends Stage {
           this.showCustomerCard(true)
           this.showBackButton(true)
 
-          this.searchList = React.createRef()
-     }
-
-     backButtonFunc = () => {
-          return;
-     }
-
-     searchFunc = () => {
-          let search = this.searchList.current.getSearchValue()
-          console.log(search);
+          this.table = React.createRef()
      }
 
      componentDidMount() {
-          this.searchList.current.addButton([{name: "Add Item", func: () => {}}])
-          this.searchList.current.setListColumns(["Brand", "Model Number", "Type", "Amount"])
-          this.searchList.current.addListItem([
-               {
-                    columns: [
-                         {html: (<h1>Hello World</h1>)},
-                         {html: (<h1>Hello World</h1>)},
-                         {html: (<h1>Hello World</h1>)},
-                         {html: (<h1>Hello World</h1>)}
-                    ]
-               }, {
-                    columns: [
-                         {html: (<h1>Hello World</h1>)},
-                         {html: (<h1>Hello World</h1>)},
-                         {html: (<h1>Hello World</h1>)},
-                         {html: (<h1>Hello World</h1>)}
-                    ]
-               }
-          ])
+          this.table.current.setColumns(["Brand", "Model", "Type", "Amount"])
+     }
+
+     backButtonFunc = () => {
+          this.props.update.changeTemplate("transaction")
+     }
+
+     addItemButton = () => {
+          return
      }
 
      populateCenterStage() {
           return (
                <div className={this.template}>
-                    <SearchListTemplate ref={this.searchList} searchFunc={this.searchFunc}/>
+                    <div className="main-header">
+                         <h1 className="main-title">Ticket Items</h1>
+                         <button className="main-header-button" onClick={this.addItemButton}>New Ticket</button>
+                    </div>
+                    <div className="main-split"/>
+                    <Table ref={this.table} className="ticket-item-list" />
                </div>
           )
      }

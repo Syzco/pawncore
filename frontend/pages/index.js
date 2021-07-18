@@ -41,6 +41,7 @@ export default class App extends React.Component {
                */
                changeTemplate: (template) => {
                     this.setState({ page: { current: template }})
+                    localStorage.setItem("page", template)
                },
 
                /*
@@ -78,6 +79,10 @@ export default class App extends React.Component {
           }
      }
 
+     componentDidMount() {
+          this.setState({page: {current: localStorage.getItem("page") || DEFAULT_PAGE}})
+     }
+
      /*
       * Template Handling
       */
@@ -103,7 +108,7 @@ export default class App extends React.Component {
                          <Ticket {...props} />
                     )
                     break;
-               case 'transactions':
+               case 'transaction':
                     return (
                          <Transaction {...props} />
                     )
@@ -113,7 +118,7 @@ export default class App extends React.Component {
                          <NewTicket {...props} /> 
                     )
                     break;
-               case 'default':
+               default:
                     return (
                          <Error404 {...props} />
                     )

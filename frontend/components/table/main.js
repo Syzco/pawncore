@@ -28,8 +28,7 @@ export default class Table extends React.Component {
                rows: this.props.rows || []
           }
      }
-
-     //columnInfo = [ID, Name, Type, Price]
+     
      setColumns = (columnInfo) => {
           if (typeof columnInfo != 'object') return
 

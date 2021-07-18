@@ -47,4 +47,12 @@ export default class Dashboard extends Stage {
                </div>
           )
      }
+
+     populateSideStage() {
+          return (
+               <div className="side-stage-container">
+                    <h1>Hello World</h1>
+               </div>
+          )
+     }
 }

@@ -128,8 +128,35 @@ button, input[type="submit"], input[type="reset"] {
 
 .back-button {
      position: absolute;
-     left: 50px;
-     top: 50px;
+     left: 20px;
+     top: 10px;
+     font-size: 46px;
+}
+
+.main-header {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+
+.main-header > .main-title {
+     margin: 0;
+}
+
+.main-split {
+     background-color: $line;
+
+     height: 1px;
+     width: 100%;
+
+     margin: 10px 0px;
+     border-radius: 10px;
+}
+
+.main-header > .main-header-button {
+     border-radius: 30px;
+     background-color: rgb(177, 42, 42);
+     margin: 0 10px;
 }
 
 /*************************
@@ -347,7 +374,7 @@ button, input[type="submit"], input[type="reset"] {
      width: 100%;
      height: 100%;
      border-collapse: collapse;
-     border-radius: 10px;
+     border-radius: 10px 10px 0 0;
      overflow: hidden;
 }
 
