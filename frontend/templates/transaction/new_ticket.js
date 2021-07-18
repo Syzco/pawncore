@@ -2,8 +2,6 @@ import SearchListTemplate from '@Components/search-list'
 import Stage from '@Components/stage/main'
 import React from 'react'
 
-// TODO: CREATE ADD RETAIL ITEM TO TRANSACTION THROUGH SEARCH METHOD. - R1
-
 export default class NewTicket extends Stage {
      constructor(props) {
           super(props)
@@ -12,9 +10,14 @@ export default class NewTicket extends Stage {
 
           let id = "1231244534234"
           this.setTitle("New Ticket - #" + id)
-          this.setCustomerCard(true)
+          this.showCustomerCard(true)
+          this.showBackButton(true)
 
           this.searchList = React.createRef()
+     }
+
+     backButtonFunc = () => {
+          return;
      }
 
      searchFunc = () => {

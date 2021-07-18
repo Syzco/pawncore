@@ -36,7 +36,7 @@ export default class SearchListTemplate extends React.Component {
 
      renderSearchSection = (className) => {
           return (
-               <div className={"search-section" + (className || "")}>
+               <div className={"search-section " + (className || "")}>
                     <SearchBox ref={this.search} searchFunc={this.searchFunc} />
                     {
                          this.state.buttons.map((v, i) => {
@@ -60,7 +60,7 @@ export default class SearchListTemplate extends React.Component {
      
      renderListSection = (className) => {
           return (
-               <div className={"list-section" + (className || "")}>
+               <div className={"list-section " + (className || "")}>
                     <Table ref={this.table} className="list-table" rows={this.props.rows || null}/>
                </div>
           )
@@ -68,7 +68,7 @@ export default class SearchListTemplate extends React.Component {
 
      render() {
           return (
-               <div className={"search-list" + (this.props.class || "")}>
+               <div className={"search-list " + (this.props.class || "")}>
                     {(this.props.searchSection) ? this.props.searchSection() : this.renderSearchSection()}
                     <div className="search-list-split"/>
                     {(this.props.listSection) ? this.props.listSection() : this.renderListSection()}

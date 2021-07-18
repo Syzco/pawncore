@@ -36,7 +36,7 @@ export default class SearchBox extends React.Component {
 
      render() {
           return (
-               <div className={"search-box" + (this.props.className || "")}>
+               <div className={"search-box " + (this.props.className || "")}>
                     <input className={this.props.class || "search-input"} type={this.props.type || "text"} pattern={this.props.pattern || ""} placeholder="" onChange={this.updateValue} onKeyDown={this.onKeyPress}/>
                     <button className="search-button" onClick={this.props.searchFunc}><i className="fa fa-arrow-circle-o-right"></i></button>
                </div>
