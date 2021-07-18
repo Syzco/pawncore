@@ -197,7 +197,7 @@ export default class Customer extends Stage {
      }
 
      componentDidMount() {
-          this.table.current.setColumns(["Id", "Name", "Age", "Sex", "Phone"])
+          this.table.current.setColumns([{html: "Id"}, {css: "tbl-head-name", html: "Name"}, {html: "Age"}, {html: "Sex"}, {html: "Phone"}])
 
           this.table.current.addRow(this.populateCustomerRows())
 

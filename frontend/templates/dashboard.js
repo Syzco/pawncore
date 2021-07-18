@@ -42,8 +42,7 @@ export default class Dashboard extends Stage {
      populateCenterStage() {
           return (
                <div className="center-stage-container">
-                    <SearchBox />
-                    <Table className="table-man" rows={this.table.rows} columns={this.table.columns} />
+                    
                </div>
           )
      }

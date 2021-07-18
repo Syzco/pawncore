@@ -476,7 +476,7 @@ button, input[type="submit"], input[type="reset"] {
      position: relative;
      display: flex;
               
-     justify-content: center;
+     justify-content: flex-start;
      align-items: center;
 }
 
@@ -486,6 +486,10 @@ button, input[type="submit"], input[type="reset"] {
      
      border-radius: 50%;
      margin-right: 25px;
+}
+
+.tbl-head-name {
+     text-align: left;
 }
 
 // side content

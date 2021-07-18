@@ -30,7 +30,12 @@ export default class Transaction extends Stage {
           this.searchList.current.addButton([{name: "New Ticket", func: () => {
                this.props.update.changeTemplate("new-ticket")
           }}])
-          this.searchList.current.setListColumns(["Inventory Number", "Product", "Type", "Amount"])
+          this.searchList.current.setListColumns([
+               {html: "Inventory Number"}, 
+               {html: "Product"}, 
+               {html: "Type"}, 
+               {html: "Amount"}
+          ])
           this.searchList.current.addListItem([
                {
                     columns: [

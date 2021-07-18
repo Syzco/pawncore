@@ -17,7 +17,12 @@ export default class NewTicket extends Stage {
      }
 
      componentDidMount() {
-          this.table.current.setColumns(["Brand", "Model", "Type", "Amount"])
+          this.table.current.setColumns([
+               {html: "Brand"}, 
+               {html: "Model"}, 
+               {html: "Type"}, 
+               {html: "Amount"}
+          ])
      }
 
      backButtonFunc = () => {

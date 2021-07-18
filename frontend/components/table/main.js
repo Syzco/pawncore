@@ -11,6 +11,9 @@ import React from "react";
  *              {css: "", html: (<div></div>)}
  *         ]
  *    }
+ * columnInfo = [
+ *        {css: "", html: ""}
+ * ]
  * 
  *   props
  *        - className
@@ -54,7 +57,7 @@ export default class Table extends React.Component {
                                    {
                                         this.state.columns.map((col, i) => {
                                              return (
-                                                  <th key={i}>{(this.props.headerFWrapperHTML || null)}{col}{(this.props.headerBWrapperHTML || null)}</th>
+                                                  <th key={i} className={(col.css || "")}>{(this.props.headerFWrapperHTML || null)}{col.html}{(this.props.headerBWrapperHTML || null)}</th>
                                              )
                                         })
                                    }
@@ -68,7 +71,7 @@ export default class Table extends React.Component {
                                                   {
                                                        row.columns.map((rowCol, i) => {
                                                             return (
-                                                                 <td key={i} className={(rowCol.css || null)}>{(this.props.rowFWrapperHTML || "")}{rowCol.html || ""}{(this.props.rowBWrapperHTML || null)}</td>
+                                                                 <td key={i} className={(rowCol.css || "")}>{(this.props.rowFWrapperHTML || "")}{rowCol.html || ""}{(this.props.rowBWrapperHTML || null)}</td>
                                                             )
                                                        })
                                                   }
