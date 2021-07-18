@@ -5,6 +5,11 @@ $bg: #2a363e;
 $bg-light: #36454f;
 $nav-buttons: #526876;
 $line: #80808083;
+$scroll: #4169e1;
+$scroll-bg: #2a363e;
+$bg-customer: #4169e1;
+
+$list-hover: #526876;
 
 /*************************
 **   Base HTML Fixings  **
@@ -87,6 +92,8 @@ button, input[type="submit"], input[type="reset"] {
      border-radius: 10px;
      padding: 20px;
      flex-grow: 3;
+
+     max-height: calc(100% - 120px);
 }
 
 .main-page > .center-pane > .center-stage > h1 {
@@ -117,7 +124,7 @@ button, input[type="submit"], input[type="reset"] {
 
      padding: 10px;
 
-     background-color: #4169e1;
+     background-color: $bg-customer;
      border-radius: 10px 0 0 10px;
 }
 
@@ -157,6 +164,10 @@ button, input[type="submit"], input[type="reset"] {
      border-radius: 30px;
      background-color: rgb(177, 42, 42);
      margin: 0 10px;
+}
+
+.clickable {
+     cursor: pointer;
 }
 
 /*************************
@@ -370,15 +381,49 @@ button, input[type="submit"], input[type="reset"] {
 /*************************
 **        Table         **
 *************************/
+.scroll-table {
+     height: 100%;
+     overflow-y: auto;
+     border-radius: 10px;
+     border: 1px solid $line;
+
+     scrollbar-width: thin;
+     scrollbar-color: $scroll $scroll-bg;
+}
+
+.scroll-table::-webkit-scrollbar {
+     width: 10px;
+     height: 10px;
+     background-color: $scroll-bg;
+     border-radius: 0 10px 10px 0;
+}
+
+.scroll-table::-webkit-scrollbar-thumb {
+     width: 14px;
+     background-color: $scroll;
+     border-radius: 0 9px 9px 0;
+}
+
+.scroll-table::-webkit-scrollbar-corner {
+     display: none;
+}
+
 .tbl {
      width: 100%;
      height: 100%;
      border-collapse: collapse;
+     overflow: hidden;
+}
+
+.tbl > thead {
      border-radius: 10px 10px 0 0;
      overflow: hidden;
 }
 
 .tbl > thead > tr {
+     position: sticky;
+     top: 0;
+
      background-color: $bg;
 }
 
@@ -386,12 +431,16 @@ button, input[type="submit"], input[type="reset"] {
      padding: 10px;
 }
 
-.tbl tr > td {
+.tbl tr td {
      text-align: center;
 }
 
 .tbl tr {
      border-bottom: 1px solid $line;
+}
+
+.tbl tr.clickable:hover {
+     background-color: $nav-buttons;
 }
 
 /*************************
@@ -400,6 +449,11 @@ button, input[type="submit"], input[type="reset"] {
 .transaction-screen {
      display: block;
 }
+
+/*************************
+**  New Ticket Screen  **
+*************************/
+
 
 /***************************
 **  Customer List Screen  **

@@ -1,5 +1,65 @@
 import Stage from '../components/stage/main'
 import Table from '../components/table/main'
+import React from 'react'
+
+let customerList = [
+     {
+          id: 1,
+          name: "Alexander Hamilton",
+          age: 10,
+          sex: "Male",
+          phone: "666-666-6969"
+     },
+     {
+          id: 2,
+          name: "Alexander Hamilton",
+          age: 10,
+          sex: "Male",
+          phone: "666-666-6969"
+     },
+     {
+          id: 3,
+          name: "Alexander Hamilton",
+          age: 10,
+          sex: "Male",
+          phone: "666-666-6969"
+     },
+     {
+          id: 4,
+          name: "Alexander Hamilton",
+          age: 10,
+          sex: "Male",
+          phone: "666-666-6969"
+     },
+     {
+          id: 5,
+          name: "Alexander Hamilton",
+          age: 10,
+          sex: "Male",
+          phone: "666-666-6969"
+     },
+     {
+          id: 6,
+          name: "Alexander Hamilton",
+          age: 10,
+          sex: "Male",
+          phone: "666-666-6969"
+     },
+     {
+          id: 7,
+          name: "Alexander Hamilton",
+          age: 10,
+          sex: "Male",
+          phone: "666-666-6969"
+     },
+     {
+          id: 8,
+          name: "Alexander Hamilton",
+          age: 10,
+          sex: "Male",
+          phone: "666-666-6969"
+     },
+]
 
 export default class Customer extends Stage {
      constructor(props) {
@@ -8,68 +68,41 @@ export default class Customer extends Stage {
           this.setTitle("Customer Search")
           this.showCustomerCard(true)
 
-          this.table = {}
-          this.table.rows = [
-               {
-                    css: "customer-item",
-                    columns: [
-                         {css: "id", html: (<h3>#000001</h3>)},
-                         {css: "name", html: (<div className="customer-name-wrapper"><img src="img/face.png"/> <h3>Kyle Anderson</h3></div>)},
-                         {css: "age", html: (<h3>28</h3>)},
-                         {css: "sex", html: (<h3>Male</h3>)},                        
-                         {css: "", html: (<h3>666-666-6969</h3>)},
-                    ]
-               },
-               {
-                    css: "customer-item",
-                    columns: [
-                         {css: "id", html: (<h3>#000125</h3>)},
-                         {css: "name", html: (<div className="customer-name-wrapper"><img src="img/face3.png"/> <h3>Beth Anderson</h3></div>)},
-                         {css: "age", html: (<h3>42</h3>)},
-                         {css: "sex", html: (<h3>Female</h3>)},                        
-                         {css: "phone", html: (<h3>244-4823-9107</h3>)},
-                    ]
-               },
-               {
-                    css: "customer-item",
-                    columns: [
-                         {css: "id", html: (<h3>#000483</h3>)},
-                         {css: "name", html: (<div className="customer-name-wrapper"><img src="img/face4.png"/> <h3>Nikki Anderson</h3></div>)},
-                         {css: "age", html: (<h3>32</h3>)},
-                         {css: "sex", html: (<h3>Female</h3>)},                        
-                         {css: "phone", html: (<h3>623-3484-4934</h3>)},
-                    ]
-               },
-               
-               {
-                    css: "customer-item",
-                    columns: [
-                         {css: "id", html: (<h3>#069318</h3>)},
-                         {css: "name", html: (<div className="customer-name-wrapper"><img src="img/face2.png"/> <h3>Jack Anderson</h3></div>)},
-                         {css: "age", html: (<h3>21</h3>)},
-                         {css: "sex", html: (<h3>Male</h3>)},                        
-                         {css: "phone", html: (<h3>514-817-2517</h3>)},
-                    ]
-               },               
-               {
-                    css: "customer-item",
-                    columns: [
-                         {css: "id", html: (<h3>#133552</h3>)},
-                         {css: "name", html: (<div className="customer-name-wrapper"><img src="img/face5.png"/> <h3>Steve Anderson</h3></div>)},
-                         {css: "age", html: (<h3>56</h3>)},
-                         {css: "sex", html: (<h3>Male</h3>)},                        
-                         {css: "phone", html: (<h3>215-817-9281</h3>)},
-                    ]
-               },
-          ]
+          this.table = React.createRef()
+          this.state = {
+               selectedCustomer: null
+          }
 
-          this.table.columns = ["Id", "Name", "Age", "Sex", "Phone", ""]
           this.showCustomerCard(true)
+     }
+
+     populateCustomerRows = () => {
+          let rowInfo = []
+          for (let i = 0; i < customerList.length; i++) {
+               rowInfo.push({
+                    css: "customer-item",
+                    columns: [
+                         {css: "id", html: (<h3>{customerList[i].id}</h3>)},
+                         {css: "name", html: (<div className="customer-name-wrapper"><img src="img/face5.png"/> <h3>{customerList[i].name}</h3></div>)},
+                         {css: "age", html: (<h3>{customerList[i].age}</h3>)},
+                         {css: "sex", html: (<h3>{customerList[i].sex}</h3>)},
+                         {css: "phone", html: (<h3>{customerList[i].phone}</h3>)}
+                    ]
+               })
+          }
+          
+          return rowInfo
+     }
+
+     componentDidMount() {
+          this.table.current.setColumns(["Id", "Name", "Age", "Sex", "Phone"])
+
+          this.table.current.addRow(this.populateCustomerRows())
      }
 
      populateCenterStage() {
           return (               
-               <Table className="customer-list" rows={this.table.rows} columns={this.table.columns} />
+               <Table ref={this.table} className="customer-list" clickable/>
           )
      }   
     

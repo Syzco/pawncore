@@ -12,6 +12,7 @@ import Ticket from '@Templates/tickets'
 import Transaction from '@Templates/transaction'
 import Error404 from '@Templates/error404'
 import NewTicket from '@Templates/transaction/new_ticket'
+import ItemSearch from '@Templates/transaction/item_search'
 
 const DEFAULT_PAGE = "dashboard"
 const TILL_ID = 1
@@ -118,6 +119,10 @@ export default class App extends React.Component {
                          <NewTicket {...props} /> 
                     )
                     break;
+               case 'item-search':
+                    return (
+                         <ItemSearch {...props} />
+                    )
                default:
                     return (
                          <Error404 {...props} />

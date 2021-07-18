@@ -25,7 +25,7 @@ export default class NewTicket extends Stage {
      }
 
      addItemButton = () => {
-          return
+          this.props.update.changeTemplate("item-search")
      }
 
      populateCenterStage() {
@@ -33,7 +33,7 @@ export default class NewTicket extends Stage {
                <div className={this.template}>
                     <div className="main-header">
                          <h1 className="main-title">Ticket Items</h1>
-                         <button className="main-header-button" onClick={this.addItemButton}>New Ticket</button>
+                         <button className="main-header-button" onClick={this.addItemButton}>Add Item</button>
                     </div>
                     <div className="main-split"/>
                     <Table ref={this.table} className="ticket-item-list" />
