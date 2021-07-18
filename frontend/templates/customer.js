@@ -6,7 +6,7 @@ export default class Customer extends Stage {
           super(props)
           
           this.setTitle("Customer Search")
-          this.setCustomerCard(true)
+          this.showCustomerCard(true)
 
           this.table = {}
           this.table.rows = [
