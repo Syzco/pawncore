@@ -1,11 +1,13 @@
 import CustomerCard from 'components/customer-card'
 import React from 'react'
+import BackButton from '@Components/back-button'
 
 export default class Stage extends React.Component {
      constructor(props) {
           super(props)
           this.title = ""
           this.hasCustomerCard = true
+          this.hasBackButton = false
      }
 
      //Call in contstuctor to set title of pages. 
@@ -13,8 +15,12 @@ export default class Stage extends React.Component {
           this.title = title
      }
 
-     setCustomerCard(bool) {
+     showCustomerCard(bool) {
           this.hasCustomerCard = bool
+     }
+
+     showBackButton(bool) {
+          this.hasBackButton = bool
      }
 
      //Abstract
@@ -27,11 +33,25 @@ export default class Stage extends React.Component {
           return;
      }
 
-
      showCustomer() {
           if (this.hasCustomerCard) {
                return (
                     <CustomerCard customer={this.props.session.customer}/>
+               )
+          }
+
+          return;
+     }
+
+     //Abstract
+     backButtonFunc() {
+          return;
+     }
+
+     showBack() {
+          if (this.hasBackButton) {
+               return (
+                    <BackButton func={this.backButtonFunc} />
                )
           }
 
@@ -58,6 +78,7 @@ export default class Stage extends React.Component {
                     </div>
 
                     {this.showCustomer()}
+                    {this.showBack()}
                </div>
           )
      }

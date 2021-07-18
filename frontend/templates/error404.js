@@ -5,7 +5,7 @@ export default class Customer extends Stage {
           super(props)
           
           this.setTitle("Ticket Search")
-          this.setCustomerCard(true)
+          this.showCustomerCard(true)
      }
 
      populateCenterStage() {

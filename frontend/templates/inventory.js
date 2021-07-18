@@ -5,7 +5,7 @@ export default class Customer extends Stage {
           super(props)
           
           this.setTitle("Inventory Search")
-          this.setCustomerCard(false)
+          this.showCustomerCard(false)
      }
 
      populateCenterStage() {

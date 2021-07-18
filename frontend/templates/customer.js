@@ -64,6 +64,7 @@ export default class Customer extends Stage {
           ]
 
           this.table.columns = ["Id", "Name", "Age", "Sex", "Phone", ""]
+          this.showCustomerCard(true)
      }
 
      populateCenterStage() {

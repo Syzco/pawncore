@@ -13,7 +13,7 @@ export default class Transaction extends Stage {
           //TODO Setup Number Counter
           let id = "1234"
           this.setTitle("New Transaction - #" + id)
-          this.setCustomerCard(true)
+          this.showCustomerCard(true)
 
           this.searchList = React.createRef()
      }
@@ -27,7 +27,9 @@ export default class Transaction extends Stage {
      }
 
      componentDidMount() {
-          this.searchList.current.addButton([{name: "New Ticket", func: () => {}}])
+          this.searchList.current.addButton([{name: "New Ticket", func: () => {
+               this.props.update.changeTemplate("new-ticket")
+          }}])
           this.searchList.current.setListColumns(["Inventory Number", "Product", "Type", "Amount"])
           this.searchList.current.addListItem([
                {

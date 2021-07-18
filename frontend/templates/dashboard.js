@@ -7,7 +7,7 @@ export default class Dashboard extends Stage {
           super(props)
           
           this.setTitle("Dashboard")
-          this.setCustomerCard(true)
+          this.showCustomerCard(true)
 
           this.table = {}
           this.table.rows = [
