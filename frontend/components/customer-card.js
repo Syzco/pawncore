@@ -18,7 +18,7 @@ export default class CustomerCard extends React.Component {
      }
      
      render() {     
-          if (typeof this.props.customer.fname == 'string') {
+          if (!this.props.customer || typeof this.props.customer.fname != "string") {
                //No Current Customer
                return (                                              
                     <div className="customer-card">
@@ -29,7 +29,7 @@ export default class CustomerCard extends React.Component {
                               <div className="customer-input-button"><button type="submit" onClick={this.searchCustomers}>Search Customer</button></div>
                         </form>
                     </div>
-                    )
+               )
           } else {
                //Has Current Customer
                return (           

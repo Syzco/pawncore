@@ -4,6 +4,7 @@
 $bg: #2a363e;
 $bg-light: #36454f;
 $nav-buttons: #526876;
+$line: #80808083;
 
 /*************************
 **   Base HTML Fixings  **
@@ -322,7 +323,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .search-list > .search-list-split {
-     background-color: #80808083;
+     background-color: $line;
 
      height: 1px;
      width: 100%;
@@ -337,10 +338,25 @@ button, input[type="submit"], input[type="reset"] {
 .tbl {
      width: 100%;
      height: 100%;
+     border-collapse: collapse;
+     border-radius: 10px;
+     overflow: hidden;
 }
 
-.tbl > tr > td {
+.tbl > thead > tr {
+     background-color: $bg;
+}
+
+.tbl > thead > tr > th {
+     padding: 10px;
+}
+
+.tbl tr > td {
      text-align: center;
+}
+
+.tbl tr {
+     border-bottom: 1px solid $line;
 }
 
 /*************************

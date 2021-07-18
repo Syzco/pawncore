@@ -13,24 +13,75 @@ import Transaction from '@Templates/transaction'
 import Error404 from '@Templates/error404'
 import Session from 'classes/Session'
 
+const DEFAULT_PAGE = "dashboard"
+const TILL_ID = 1
+const TILL_STARTING_AMOUNT = 10000
+
 export default class App extends React.Component {
      constructor (props) {
           super(props)
 
           this.state = {
                page: {
-                    current: "dashboard"
+                    current: DEFAULT_PAGE
                },
-               session: new Session(1, 300)
+               session: {
+                    till: {
+                         id: TILL_ID,
+                         amount: TILL_STARTING_AMOUNT
+                    },
+                    customer: null,
+                    transaction: null
+               }
           }
 
-          this.changeTemplate = this.changeTemplate.bind(this);
+          this.updateMethods = {
+               /*
+               * Template Handling
+               */
+               changeTemplate: (template) => {
+                    this.setState({ page: { current: template }})
+               },
+
+               /*
+               * Transaction Handling
+               */
+               changeTransaction: (transaction) => {
+                    this.setState({ session: { transaction: transaction } })
+               },
+               getTransaction: () => {
+                    return this.state.session.transaction
+               },
+
+               /*
+               * Customer Handling
+               */
+               changeCustomer: (customer) => {
+                    this.setState({ session: { customer: customer } })
+               },
+               removeCustomer: (removeCustomer) => {
+                    this.setState({ session: { customer: null } })
+               },
+
+               /*
+               * Till Handling
+               */
+               adjustTill: (amt) => {
+                    this.setState({ session: { till: { amount: (this.state.session.till.amount + amt) } } })
+               },
+               getTill: () => {
+                    return this.state.session.till.id
+               },
+               getTillAmount: () => {
+                    return this.state.session.till.amount
+               }
+          }
      }
 
      /*
       * Template Handling
       */
-     loadTemplate(props) {
+     loadTemplate = (props) => {
           switch (this.state.page.current) {
                case 'dashboard': 
                     return (
@@ -57,34 +108,16 @@ export default class App extends React.Component {
                          <Transaction {...props} />
                     )
                     break;
+               case 'new-ticket':
+                    return (
+                         <
+                    )
+                    break;
                case 'default':
                     return (
                          <Error404 {...props} />
                     )
           }
-     }
-     changeTemplate(template) {
-          this.setState({ page: { current: template }})
-     }
-
-     /*
-      * Transaction Handling
-      */
-     changeTransaction = (transaction) => {
-          this.setState({ session: { transaction: transaction } })
-     }
-     getTransaction = () => {
-          return this.state.session.transaction
-     }
-
-     /*
-      * Customer Handling
-      */
-     changeCustomer = (customer) => {
-          this.setState({ session: { customer: customer } })
-     }
-     removeCustomer = (removeCustomer) => {
-          this.setState({ session: { customer: "" } })
      }
      
 
@@ -96,9 +129,9 @@ export default class App extends React.Component {
                          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
                     </Head>
 
-                    <Navigation navFunc={this.changeTemplate} active={this.state.page.current} />
+                    <Navigation navFunc={this.updateMethods.changeTemplate} active={this.state.page.current} />
 
-                    {this.loadTemplate({  session: this.state.session,  update: this.updateIndexData, retrieve: this.getIndexData })}
+                    {this.loadTemplate({  session: this.state.session, update: this.updateMethods  })}
                </div>
           )
      }

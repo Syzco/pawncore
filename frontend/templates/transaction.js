@@ -2,6 +2,8 @@ import SearchListTemplate from '@Components/search-list'
 import Stage from '../components/stage/main'
 import React from 'react'
 
+// TODO: CREATE ADD RETAIL ITEM TO TRANSACTION THROUGH SEARCH METHOD. - R1
+
 export default class Transaction extends Stage {
      constructor(props) {
           super(props)
@@ -16,9 +18,12 @@ export default class Transaction extends Stage {
           this.searchList = React.createRef()
      }
 
+     //TODO: FIX SEARCH METHOD HERE - R1
      searchFunc = () => {
           let search = this.searchList.current.getSearchValue()
           console.log(search);
+
+          this.props.update.adjustTill(-100)
      }
 
      componentDidMount() {
@@ -41,6 +46,12 @@ export default class Transaction extends Stage {
                     ]
                }
           ])
+
+          console.log(this.props.update.getTillAmount())
+     }
+
+     componentDidUpdate() {
+          console.log(this.props.update.getTillAmount())
      }
 
      populateCenterStage() {
