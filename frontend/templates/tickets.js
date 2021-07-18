@@ -30,7 +30,9 @@ export default class Tickets extends Stage {
           return (
                <div className="center-stage-container">
                     <SearchBox />
-                    <Table className="ticket-list" rows={this.table.rows} columns={this.table.columns} />
+                    <div className="list-container">                      
+                         <Table className="ticket-list" rows={this.table.rows} columns={this.table.columns} />
+                    </div>
                </div>
           )
      }
