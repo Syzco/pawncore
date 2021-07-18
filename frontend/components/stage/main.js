@@ -52,7 +52,7 @@ export default class Stage extends React.Component {
                     </div>
 
                     <div className="side-pane">
-                         <div className="side-stage" style={{ marginTop: ( (this.hasCustomerCard) ? "" : "300px" ) }}>
+                         <div className="side-stage" style={{ marginTop: ( (this.hasCustomerCard) ? ((this.props.session.customer) ? "300px" : "200px") : "" ) }}>
                               {this.populateSideStage()}
                          </div>
                     </div>
