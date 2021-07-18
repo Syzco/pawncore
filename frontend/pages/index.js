@@ -11,7 +11,7 @@ import Inventory from '@Templates/inventory'
 import Ticket from '@Templates/tickets'
 import Transaction from '@Templates/transaction'
 import Error404 from '@Templates/error404'
-import NewTicket from '@Templates/transactions/new_ticket'
+import NewTicket from '@Templates/transaction/new_ticket'
 
 const DEFAULT_PAGE = "dashboard"
 const TILL_ID = 1
