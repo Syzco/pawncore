@@ -501,8 +501,10 @@ button, input[type="submit"], input[type="reset"] {
 
 .customer-side-details
 {
-     font-size: 16pt;
+     display: flex;
+     flex-direction: column;
 
+     font-size: 16pt;
      padding: 10px;
 }
 
@@ -562,11 +564,9 @@ button, input[type="submit"], input[type="reset"] {
 // side content
 
 .item-side-details
-{
+{     
      display: flex;
-
-     justify-content: center;
-     align-content: center;
+     flex-direction: column;
 
      margin-top: 25%;
      font-size: 17pt;     
@@ -590,8 +590,6 @@ button, input[type="submit"], input[type="reset"] {
 
 .tbl.ticket-list {
      height: auto;
-     
-     margin-top: 20px;
 }
 
 .ticket-item > td {

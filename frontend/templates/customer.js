@@ -8,7 +8,7 @@ let customerList = {
           age: 10,
           sex: "Male",
           phone: "666-666-6969",
-          dob: "",
+          dob: "01-11-1757",
           race: "Black",
           eyeColor: "Blue",
           hairColor: "Black",
@@ -216,29 +216,32 @@ export default class Customer extends Stage {
           return (
                <div className="customer-side-details">
                     <div className="name">
-                         <p>Name: {customerList[this.state.selectedCustomer].name}</p>
+                         <p>
+                              <div className="name">Name: {customerList[this.state.selectedCustomer].name}</div>
+                         </p>
                     </div>
 
                     <div className="characteristics">
                          <p>
-                              Date of Birth: {customerList[this.state.selectedCustomer].dob} <br />
-                              Sex: {customerList[this.state.selectedCustomer].sex} <br />
-                              Race: {customerList[this.state.selectedCustomer].race}
+                              <div className="dob">Date of Birth: {customerList[this.state.selectedCustomer].dob}</div>
+                              <div className="sex">Sex: {customerList[this.state.selectedCustomer].sex}</div>
+                              <div className="race">Race: {customerList[this.state.selectedCustomer].race}</div>
                          </p>
                     </div>
 
                     <div className="physicals">
                          <p>
-                              Eye Color: {customerList[this.state.selectedCustomer].eyeColor} <br />
-                              Hair Color: {customerList[this.state.selectedCustomer].hairColor} <br />
-                              Marks: {customerList[this.state.selectedCustomer].marks}
+                              <div className="eye-color">Eye Color: {customerList[this.state.selectedCustomer].eyeColor}</div>
+                              <div className="hair-color">Hair Color: {customerList[this.state.selectedCustomer].hairColor}</div>
+                              <div className="marks">Marks: {customerList[this.state.selectedCustomer].marks}</div>
                          </p>
                     </div>
 
                     <div className="other">
-                         <p>Occupation: {customerList[this.state.selectedCustomer].occupation}</p>
+                         <p>
+                              <div className="occupation">Occupation: {customerList[this.state.selectedCustomer].occupation}</div>
+                         </p>
                     </div>
-
                </div>
           )
      }

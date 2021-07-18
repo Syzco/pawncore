@@ -1,6 +1,7 @@
 import Stage from '../components/stage/main'
 import Table from '../components/table/main'
 import SearchBox from '@Components/search-box'
+import React from 'react'
 
 export default class Inventory extends Stage {
      constructor(props) {
@@ -9,8 +10,8 @@ export default class Inventory extends Stage {
           this.setTitle("Inventory Search")
           this.showCustomerCard(false)
 
-          this.table = {}
-          this.table.rows = [
+          this.table = React.createRef()
+          this.rows = [
                {
                     css: "inventory-item",
                     columns: [
@@ -35,7 +36,11 @@ export default class Inventory extends Stage {
                },
           ]
 
-          this.table.columns = ["Inventory Number", "Product", "Quantity", "Price", "ItemId", ""]
+     }
+     
+     componentDidMount()
+     {          
+          this.table.current.setColumns([{html: "Inventory Number"}, {html: "Product"}, {html: "Quantity"}, {html: "Price"}, {html: "ItemId"}, {html: ""}])
      }
 
      populateCenterStage() {
@@ -44,7 +49,7 @@ export default class Inventory extends Stage {
                     <SearchBox />
 
                     <div className="list-container">
-                         <Table className="inventory-list" rows={this.table.rows} columns={this.table.columns} />
+                         <Table ref={this.table} className="inventory-list" rows={this.rows} />
                     </div>
                </div>
           )
@@ -62,33 +67,25 @@ export default class Inventory extends Stage {
                     </div>
 
                     <div className="inventory-details">
-                         <p>
-                              Item Id: 593823 <br />
-                              Inventory Number: 356121 <br />
-                              Serial Number: 4992231
-                         </p>
+                         <div className="item-id">Item Id: 593823 </div>
+                         <div className="inventory-number">Inventory Number: 356121</div>
+                         <div className="serial-number">Serial Number: 4992231 </div>
                     </div>
 
                     <div className="catalog">
-                         <p>
-                              Type: Cleaning Supplies <br />
-                              Catalog: 4922031
-                         </p>
+                         <div className="type">Type: Cleaning Supplies</div>
+                         <div className="catalog">Catalog: 4922031</div>
                     </div>
 
                     <div className="price">
-                         <p>
-                              Quantity: 1 <br />
-                              Price: $654 <br />
-                              Cost: $822
-                         </p>
+                         <div className="quantity">Quantity: 1 </div>
+                         <div className="price">Price: $654 </div>
+                         <div className="cost">Cost: $822 </div>
                     </div>
 
                     <div className="item-details">
-                         <p>
-                              Condition: New <br />
-                              Description: <span className="item-description">A bottle of shampoo.</span>
-                         </p>
+                         <div className="condition">Condition: New </div>
+                         <div className="description">Description: <span className="item-description">A bottle of shampoo.</span></div>
                     </div>
                </div>
           )
