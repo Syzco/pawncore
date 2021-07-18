@@ -565,3 +565,70 @@ button, input[type="submit"], input[type="reset"] {
 
      border-radius: 10px;
 }
+
+/***************************
+**  Ticket List Screen    **
+***************************/
+
+// main content
+
+.tbl.ticket-list {
+     height: auto;
+     
+     margin-top: 20px;
+}
+
+.ticket-item > td {
+     padding: 20px;
+}
+
+.ticket-item > .ticket-view-button > i {
+     font-size: 30pt;
+     font-weight: bold;
+          
+     text-decoration: none;
+
+     color: white;
+     padding: 5px 20px;
+
+     border-radius: 15%;
+}
+
+// side content
+
+.ticket-side-details
+{
+     margin-top: 25%;
+     font-size: 20pt;     
+
+     padding: 15px;
+}
+
+.ticket-side-details > .buttons 
+{
+     display: flex;
+
+     justify-content: center;
+
+     position: relative;
+}
+
+.ticket-side-details > .buttons a
+{
+     font-size: 14pt;
+     font-weight: bold;
+          
+     text-decoration: none;
+
+     color: white;
+     background-color: #4169e1;
+     padding: 5px 20px;
+     
+     margin: 0 15px;
+
+     border-radius: 15%; 
+     
+     position: relative;
+     top: 25em;
+
+}
