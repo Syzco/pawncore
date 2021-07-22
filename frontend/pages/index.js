@@ -4,6 +4,8 @@
 import Navigation from '@Nav/main.js'
 import React from 'react'
 import Head from 'next/head'
+import { SWRConfig } from 'swr'
+import axios from 'axios'
 
 import Dashboard from '@Templates/dashboard'
 import Customer from '@Templates/customer'
@@ -17,6 +19,7 @@ import ItemSearch from '@Templates/transaction/item_search'
 const DEFAULT_PAGE = "dashboard"
 const TILL_ID = 1
 const TILL_STARTING_AMOUNT = 10000
+const SERVER_BASE_URL = "http://localhost:3003"
 
 export default class App extends React.Component {
      constructor (props) {
@@ -134,15 +137,21 @@ export default class App extends React.Component {
      //Render the content.
      render() {
           return (
-               <div className="main-container">
-                    <Head>
-                         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-                    </Head>
+               <SWRConfig value={
+                    {
+                         fetcher: (url) => axios.get(SERVER_BASE_URL + url).then(res => res.data)
+                    }
+               }>
+                    <div className="main-container">
+                         <Head>
+                              <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+                         </Head>
 
-                    <Navigation navFunc={this.updateMethods.changeTemplate} active={this.state.page.current} />
+                         <Navigation navFunc={this.updateMethods.changeTemplate} active={this.state.page.current} />
 
-                    {this.loadTemplate({  session: this.state.session, update: this.updateMethods  })}
-               </div>
+                         {this.loadTemplate({  session: this.state.session, update: this.updateMethods  })}
+                    </div>
+               </SWRConfig>
           )
      }
 }

@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "customers",
   "info": {
-    "name": "Customers"
+    "name": "Customers",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -21,9 +22,6 @@
     "last_name": {
       "type": "string",
       "required": true
-    },
-    "date_of_birth": {
-      "model": "dates"
     },
     "sex": {
       "type": "enumeration",
@@ -92,7 +90,22 @@
       "type": "string"
     },
     "image": {
-      "model": "customer-images"
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "date_of_birth": {
+      "type": "date"
+    },
+    "phone": {
+      "type": "biginteger"
     }
   }
 }

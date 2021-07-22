@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "identifications",
   "info": {
-    "name": "Identifications"
+    "name": "Identifications",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -29,8 +30,15 @@
       "type": "string",
       "required": true
     },
-    "image": {
-      "model": "identification-images"
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

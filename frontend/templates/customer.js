@@ -1,167 +1,9 @@
 import Stage from '../components/stage/main'
 import Table from '../components/table/main'
 import React from 'react'
+import useSWR from 'swr'
 
-let customerList = {
-     1: {
-          name: "Alexander Hamilton",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "01-11-1757",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     },
-     2: {
-          name: "Winter Solstice",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     },
-     3: {
-          name: "Ralph Hammond",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     },
-     4: {
-          name: "Home Couch",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     },
-     5: {
-          name: "Spring Board",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     },
-     6: {
-          name: "Jose Lexington",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     },
-     7: {
-          name: "George Clooney",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     },
-     8: {
-          name: "Pizza Boi",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     },
-     9: {
-          name: "Luce Wimmand",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     },
-     10: {
-          name: "Wu Man Chu",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     },
-     11: {
-          name: "King Bach",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     },
-     12: {
-          name: "Garfield Orange-Cat",
-          age: 10,
-          sex: "Male",
-          phone: "666-666-6969",
-          dob: "",
-          race: "Black",
-          eyeColor: "Blue",
-          hairColor: "Black",
-          marks: "Teardrop Tattoo",
-          occupation: "Wendy's Janitor",
-          imgSrc: "img/face5.png"
-     }
-}
-
-export default class Customer extends Stage {
+class Customer extends Stage {
      constructor(props) {
           super(props)
           
@@ -170,25 +12,30 @@ export default class Customer extends Stage {
 
           this.table = React.createRef()
           this.state = {
-               selectedCustomer: ((this.props.customerList) ? Object.keys(this.props.customerList)[0] : Object.keys(customerList)[0])
+               selectedCustomer: ((this.props.customerList) ? this.props.customerList[0].id : "")
           }
 
           this.showCustomerCard(true)
      }
 
      populateCustomerRows = () => {
+          if (!this.props.customerList) return {}
           let rowInfo = []
-          let customerIdList = Object.keys(customerList)
-          for (let i = 0; i < customerIdList.length; i++) {
+          for (let i = 0; i < this.props.customerList.length; i++) {
                rowInfo.push({
-                    id: customerIdList[i],
+                    id: this.props.customerList[i].id,
                     css: "customer-item",
                     columns: [
-                         {css: "id", html: (<h3>{customerIdList[i]}</h3>)},
-                         {css: "name", html: (<div className="customer-name-wrapper"><img src={customerList[customerIdList[i]].imgSrc}/> <h3>{customerList[customerIdList[i]].name}</h3></div>)},
-                         {css: "age", html: (<h3>{customerList[customerIdList[i]].age}</h3>)},
-                         {css: "sex", html: (<h3>{customerList[customerIdList[i]].sex}</h3>)},
-                         {css: "phone", html: (<h3>{customerList[customerIdList[i]].phone}</h3>)}
+                         {css: "id", html: (<h3>{this.props.customerList[i]}</h3>)},
+                         {css: "name", html: (
+                              <div className="customer-name-wrapper">
+                                   <img src={this.props.customerList[i].imgSrc}/> 
+                                   <h3>{this.props.customerList[i].first_name + " " + this.props.customerList[i].last_name}</h3>
+                              </div>
+                         )},
+                         {css: "age", html: (<h3>{this.props.customerList[i].date_of_birth}</h3>)},
+                         {css: "sex", html: (<h3>{this.props.customerList[i].sex}</h3>)},
+                         {css: "phone", html: (<h3>{this.props.customerList[i].phone}</h3>)}
                     ]
                })
           }
@@ -199,7 +46,7 @@ export default class Customer extends Stage {
      componentDidMount() {
           this.table.current.setColumns([{html: "Id"}, {css: "tbl-head-name", html: "Name"}, {html: "Age"}, {html: "Sex"}, {html: "Phone"}])
 
-          this.table.current.addRow(this.populateCustomerRows())
+          //this.table.current.addRow(this.populateCustomerRows())
 
           this.table.current.rowClickFunc = (e) => {
                this.setState({ selectedCustomer: e.currentTarget.dataset.id } );
@@ -212,7 +59,7 @@ export default class Customer extends Stage {
           )
      }   
     
-     populateSideStage() {
+     /*populateSideStage() {
           return (
                <div className="customer-side-details">
                     <div className="name">
@@ -244,5 +91,15 @@ export default class Customer extends Stage {
                     </div>
                </div>
           )
-     }
+     }*/
+}
+
+export default function CustomerTemplate(props) {
+     const {data, error} = useSWR('/search/customers')
+
+     console.log(data);
+
+     return (
+          <Customer {...props} customerList={data} />
+     )
 }
