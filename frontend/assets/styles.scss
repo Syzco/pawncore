@@ -646,3 +646,58 @@ button, input[type="submit"], input[type="reset"] {
      top: 25em;
 
 }
+
+/***************************
+**       Dashboard        **
+***************************/
+
+.top-row-elements {
+     display: flex;
+
+     justify-content: space-around;
+     align-items: center;
+     margin: 10px;
+
+}
+
+.top-row-elements > .element-icon {
+     width: 100px;
+     height: 105px;
+
+     margin-left: 20px;
+}
+
+.bottom-row-elements {
+     display: flex;
+
+     justify-content: space-around;
+     align-items: center;
+     margin: 10px;     
+}
+
+.top-row-elements > .inventory, .prices, .interviews, .completed {
+     display: flex;
+     
+     background-color: #2a363e;
+     
+     text-align: center;
+     align-items: center;
+
+     justify-content: center;
+     flex-direction: column;
+
+     font-size: 16pt;
+    
+
+     width: 25%;
+     height: 105px;
+}
+
+
+.bottom-row-elements > .pawn-balance, .todays-sales, .ytd-sales, .total-customers {
+     
+     background-color: #2a363e;
+     text-align: center;
+
+     padding: 20px;
+}

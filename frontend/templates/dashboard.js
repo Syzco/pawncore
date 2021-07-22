@@ -7,7 +7,7 @@ export default class Dashboard extends Stage {
           super(props)
           
           this.setTitle("Dashboard")
-          this.showCustomerCard(true)
+          this.showCustomerCard(false)
 
           this.table = {}
           this.table.rows = [
@@ -42,7 +42,58 @@ export default class Dashboard extends Stage {
      populateCenterStage() {
           return (
                <div className="center-stage-container">
-                    
+                    <div className="top-row-elements">
+                         <img className="element-icon" src="img/dashboard-icons/clipboard.png" />
+                         <div className="inventory">
+                              <h2 className="xd">Inventory: <br /> 123456 </h2> 
+                         </div>
+
+                         <img className="element-icon" src="img/dashboard-icons/clipboard-1.png" />
+                         <div className="prices">
+                              <h2 className="xd">Inventory: <br /> 123456 </h2>        
+                         </div>
+
+                         <img className="element-icon" src="img/dashboard-icons/clipboard-2.png" />
+                         <div className="interviews">
+                              <h2 className="xd">Inventory: <br /> 123456 </h2>                    
+                         </div>
+
+                         <img className="element-icon" src="img/dashboard-icons/clipboard-3.png" />
+                         <div className="completed">
+                              <h2 className="xd">Inventory: <br /> 123456 </h2>           
+                         </div>
+                    </div>
+
+                    <div className="bottom-row-elements">
+                         <div className="pawn-balance">
+                              <h2 className="xd">Inventory:</h2>
+                              <span className="value">123456</span>
+                              
+                              { /* <Graph values=pawn-balance/> */ }                                       
+                         </div>
+
+                         <div className="todays-sales">
+                              <h2 className="xd">Inventory: <br /> 123456 </h2>    
+                              
+                              { /* <Graph values=today-sales /> */ }         
+                         </div>
+
+                         <div className="ytd-sales">
+                              <h2 className="xd">Inventory: <br /> 123456 </h2>   
+
+                              { /* <Graph values=ytd-sales/> */ }                                        
+                         </div>
+
+                         <div className="total-customers">
+                              <h2 className="xd">Inventory: <br /> 123456 </h2>  
+                              
+                              { /* <Graph values=total-customers /> */ }     
+                         </div>
+                    </div>
+
+                    <div className="product-pricing">
+
+                    </div>
                </div>
           )
      }
@@ -50,7 +101,15 @@ export default class Dashboard extends Stage {
      populateSideStage() {
           return (
                <div className="side-stage-container">
-                    <h1>Hello World</h1>
+                    <div className="todo-list">
+                         <h1>To-Do List</h1>
+                         <ul className="list-contents">
+                              <li>Price Items</li>
+                              <li>Interview New Applicants</li>
+                              <li>Count Money</li>
+                              <li>Chill</li>
+                         </ul>
+                    </div>
                </div>
           )
      }
